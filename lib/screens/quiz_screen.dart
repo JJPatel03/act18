@@ -63,7 +63,9 @@ class _QuizScreenState extends State<QuizScreen> {
     return ElevatedButton(
       onPressed: _answered ? null : () => _submitAnswer(option),
       child: Text(option),
-      style: ElevatedButton.styleFrom(primary: Colors.blue),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue, // FIXED
+      ),
     );
   }
 
@@ -78,8 +80,7 @@ class _QuizScreenState extends State<QuizScreen> {
     if (_currentQuestionIndex >= _questions.length) {
       return Scaffold(
         body: Center(
-          child:
-              Text('Quiz Finished! Your Score: $_score/${_questions.length}'),
+          child: Text('Quiz Finished! Your Score: $_score/${_questions.length}'),
         ),
       );
     }
@@ -126,4 +127,3 @@ class _QuizScreenState extends State<QuizScreen> {
     );
   }
 }
-
